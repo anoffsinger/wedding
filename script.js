@@ -214,6 +214,7 @@ const storyAssetMap = {
   kauai: { type: "image", src: "img/kauai.JPG", aspect: "4 / 3" },
   house: { type: "image", src: "img/house.JPG", aspect: "4 / 3" },
   proposed: { type: "image", src: "img/proposed.JPG", aspect: "2 / 3" },
+  "propose to deb": { type: "image", src: "img/proposed.JPG", aspect: "2 / 3" },
   "proposed to deb": { type: "image", src: "img/proposed.JPG", aspect: "2 / 3" },
   "best night": { type: "image", src: "img/best night.JPG", aspect: "2 / 3" },
 };
