@@ -195,6 +195,7 @@ const storyImages = [
 ];
 const storyAssetMap = {
   "figured it out": { type: "image", src: "img/figured it out.jpeg", aspect: "4 / 3" },
+  "strong bond": { type: "image", src: "img/figured it out.jpeg", aspect: "4 / 3" },
   "deb's puppy": { type: "video", src: "img/figured it out.MOV", aspect: "3 / 4" },
   miles: { type: "video", src: "img/figured it out.MOV", aspect: "3 / 4" },
   camping: { type: "image", src: "img/camping.JPG", aspect: "4 / 3" },
