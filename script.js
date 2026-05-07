@@ -203,6 +203,7 @@ const storyAssetMap = {
   dinners: { type: "image", src: "img/dinners.jpeg", aspect: "4 / 3" },
   "had dinners": { type: "image", src: "img/dinners.jpeg", aspect: "4 / 3" },
   trips: { type: "image", src: "img/trips.jpeg", aspect: "4 / 3" },
+  "on that trip": { type: "image", src: "img/trip.JPG", aspect: "4 / 3" },
   "took trips": { type: "image", src: "img/trips.jpeg", aspect: "4 / 3" },
   "working out": { type: "image", src: "img/working out.JPG", aspect: "3 / 4" },
   trails: { type: "image", src: "img/trails.jpeg", aspect: "3 / 4" },
