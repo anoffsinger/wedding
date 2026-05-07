@@ -12,7 +12,7 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
   });
 });
 
-const openingPhoto = document.querySelector(".opening-photo");
+const openingPhoto = document.querySelector(".opening-photos");
 const siteHeader = document.querySelector(".site-header");
 const siteMenu = document.querySelector(".site-menu");
 const menuToggle = document.querySelector(".menu-toggle");
@@ -786,13 +786,18 @@ function getOpeningPhotoTarget() {
   const endWidth = isMobile ? 39 : 55;
   const startLeft = headerRect.left + (headerRect.width / 2);
   const progress = clamp(window.scrollY / 360, 0, 1);
+  const startOffset = startWidth * 0.443;
 
   return {
     left: startLeft,
     top: lerp(startTop, endTop, progress),
     width: startWidth,
     scale: lerp(1, endWidth / startWidth, progress),
-    rotation: lerp(5, 0, progress),
+    heroX: lerp(-startOffset, 0, progress),
+    barX: lerp(startOffset, 0, progress),
+    heroRotation: lerp(-8, 0, progress),
+    barRotation: lerp(8, 0, progress),
+    barShadowAlpha: lerp(0.08, 0, progress),
   };
 }
 
@@ -800,11 +805,17 @@ let photoFrame;
 let photoMotion;
 
 function applyOpeningPhoto(values) {
+  const barShadowAlpha = clamp(values.barShadowAlpha, 0, 0.08);
+
   openingPhoto.style.setProperty("--photo-left", `${values.left}px`);
   openingPhoto.style.setProperty("--photo-top", `${values.top}px`);
   openingPhoto.style.setProperty("--photo-width", `${values.width}px`);
   openingPhoto.style.setProperty("--photo-scale", values.scale.toString());
-  openingPhoto.style.setProperty("--photo-rotation", `${values.rotation}deg`);
+  openingPhoto.style.setProperty("--photo-hero-x", `${values.heroX}px`);
+  openingPhoto.style.setProperty("--photo-bar-x", `${values.barX}px`);
+  openingPhoto.style.setProperty("--photo-hero-rotation", `${values.heroRotation}deg`);
+  openingPhoto.style.setProperty("--photo-bar-rotation", `${values.barRotation}deg`);
+  openingPhoto.style.setProperty("--photo-bar-shadow-alpha", barShadowAlpha.toString());
 }
 
 function updateOpeningPhotoTarget({ snap = false } = {}) {
@@ -818,7 +829,17 @@ function updateOpeningPhotoTarget({ snap = false } = {}) {
     photoMotion = {
       current: { ...target },
       target,
-      velocity: { left: 0, top: 0, width: 0, scale: 0, rotation: 0 },
+      velocity: {
+        left: 0,
+        top: 0,
+        width: 0,
+        scale: 0,
+        heroX: 0,
+        barX: 0,
+        heroRotation: 0,
+        barRotation: 0,
+        barShadowAlpha: 0,
+      },
     };
     applyOpeningPhoto(photoMotion.current);
     return;
@@ -836,7 +857,17 @@ function animateOpeningPhoto() {
 
   let keepAnimating = false;
 
-  ["left", "top", "width", "scale", "rotation"].forEach((key) => {
+  [
+    "left",
+    "top",
+    "width",
+    "scale",
+    "heroX",
+    "barX",
+    "heroRotation",
+    "barRotation",
+    "barShadowAlpha",
+  ].forEach((key) => {
     const next = springValue(
       photoMotion.current[key],
       photoMotion.velocity[key],
