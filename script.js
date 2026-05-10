@@ -674,6 +674,7 @@ async function showStoryPreview(event) {
     velocity: { x: 0, y: 0, lift: 0, scale: 0, rotation: 0 },
   };
   applyStoryPreview(previewMotion.current);
+  document.body.classList.add("story-overlay-open");
   storyScrim.classList.add("is-visible");
   storyPreview.classList.add("is-visible");
   requestStoryPreviewAnimation();
@@ -681,6 +682,7 @@ async function showStoryPreview(event) {
 
 function hideStoryPreview() {
   storyPreviewRequestId += 1;
+  document.body.classList.remove("story-overlay-open");
   storyScrim?.classList.remove("is-visible");
   storyPreview?.classList.remove("is-visible");
   storyPreviewVideo?.pause();
