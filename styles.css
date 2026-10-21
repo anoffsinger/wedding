@@ -539,23 +539,6 @@ body.story-overlay-open .opening-photos {
   white-space: nowrap;
 }
 
-.desktop-rsvp-reminder,
-.mobile-rsvp-reminder {
-  display: inline-flex;
-  height: 56px;
-  align-items: center;
-  color: var(--ink-soft);
-  font-family: "Enter", "Inter", Arial, sans-serif;
-  font-size: var(--type-body-size);
-  font-weight: 400;
-  line-height: var(--type-body-line);
-  white-space: nowrap;
-}
-
-.mobile-rsvp-reminder {
-  display: none;
-}
-
 .gift-button {
   height: 56px;
   min-height: 56px;
@@ -1314,14 +1297,6 @@ h3 {
     z-index: var(--z-hero-photo) !important;
   }
 
-  .desktop-rsvp-reminder {
-    display: none;
-  }
-
-  .mobile-rsvp-reminder {
-    display: inline-flex;
-  }
-
   .opening {
     min-height: 350px;
   }
@@ -1412,14 +1387,6 @@ h3 {
   .opening-photos {
     position: fixed !important;
     z-index: var(--z-hero-photo) !important;
-  }
-
-  .desktop-rsvp-reminder {
-    display: none;
-  }
-
-  .mobile-rsvp-reminder {
-    display: inline-flex;
   }
 
   .opening {
