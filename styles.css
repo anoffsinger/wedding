@@ -1424,10 +1424,6 @@ h3 {
 }
 
 @media (max-width: 640px) {
-  .wedding-country {
-    display: none;
-  }
-
   .menu-toggle {
     display: inline-flex;
     width: auto;
