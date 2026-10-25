@@ -734,6 +734,64 @@ h2,
   line-height: var(--type-label-line);
 }
 
+.wedding-date-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 24px;
+}
+
+.wedding-location {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 5px;
+  margin: 0;
+  color: var(--green);
+  text-decoration: none;
+  font-size: calc(var(--type-body-size) - 2pt - 2px);
+  font-weight: 600;
+  line-height: var(--type-body-line);
+  text-align: right;
+}
+
+.wedding-date-notes {
+  margin: -6px 0 0;
+  color: var(--ink-soft);
+  font-size: calc(var(--type-body-size) - 2pt - 4px);
+  font-weight: 400;
+  line-height: var(--type-body-line);
+  text-align: left;
+}
+
+
+.running-route-link {
+  color: var(--green);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.running-route-link:hover,
+.running-route-link:focus-visible {
+  color: var(--green-dark);
+  text-decoration: underline;
+}
+
+a.wedding-location:hover,
+a.wedding-location:focus-visible {
+  color: var(--green-dark);
+  text-decoration: underline;
+}
+
+.location-link-icon {
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linejoin: round;
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+  align-self: center;
+}
+
 .wedding-detail-row {
   position: relative;
   display: flex;
@@ -773,7 +831,7 @@ h2,
 
 .wedding-detail-row .secondary {
   padding-left: 4px;
-  color: var(--ink-soft);
+  color: var(--ink);
   text-align: right;
   white-space: nowrap;
 }
@@ -785,6 +843,10 @@ h2,
   transform: translateY(calc(-0.08em - 2px));
 }
 
+.wedding-date-notes + .wedding-events {
+  margin-top: 8px;
+}
+
 .wedding-events {
   display: grid;
   gap: 8px;
@@ -792,15 +854,9 @@ h2,
 
 .wedding-notes {
   margin: 0;
-  padding-left: 1.1em;
-  list-style-position: outside;
   font-size: var(--type-body-size);
   font-weight: var(--type-body-weight);
   line-height: var(--type-body-line);
-}
-
-.wedding-notes li + li {
-  margin-top: 9px;
 }
 
 .venue-photo,
@@ -1473,10 +1529,6 @@ h3 {
     padding-left: 4px;
     text-align: right;
     white-space: nowrap;
-  }
-
-  .wedding-notes {
-    padding-left: 1.1em;
   }
 
   .accommodation-option,
