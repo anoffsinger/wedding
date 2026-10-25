@@ -716,6 +716,7 @@ h2,
 
 .wedding-details {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   width: min(var(--max), 100%);
   margin: clamp(48px, 7vw, 84px) auto 0;
   gap: 44px;
@@ -724,6 +725,8 @@ h2,
 
 .wedding-detail-block {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  min-width: 0;
   gap: 12px;
 }
 
@@ -849,6 +852,7 @@ a.wedding-location:focus-visible {
 
 .wedding-events {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: 8px;
 }
 
@@ -1393,11 +1397,37 @@ h3 {
   }
 
   .wedding-detail-row {
+    align-items: baseline;
     gap: 18px;
+  }
+
+  .wedding-detail-row p:first-child {
+    min-width: 0;
+    white-space: normal;
+  }
+
+  .wedding-detail-row .secondary {
+    flex-shrink: 0;
+  }
+
+  .wedding-date-heading {
+    gap: 12px;
+  }
+
+  .wedding-date-heading h3 {
+    flex-shrink: 0;
+  }
+
+  .wedding-location {
+    min-width: 0;
   }
 }
 
 @media (max-width: 640px) {
+  .wedding-country {
+    display: none;
+  }
+
   .menu-toggle {
     display: inline-flex;
     width: auto;
